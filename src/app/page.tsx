@@ -176,29 +176,54 @@ export default function Home() {
             <img
               src="/porta_logo.png"
               alt="PORTA"
+              onClick={() => {
+                setIsManualClick(true);
+                setActiveSection(-1);
+                const element = document.getElementById('hero');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                setTimeout(() => {
+                  setIsManualClick(false);
+                }, 800);
+              }}
               style={{
                 height: '3rem',
-                width: 'auto'
+                width: 'auto',
+                cursor: 'pointer'
               }}
             />
             <div style={{
               display: 'flex',
-              gap: '1rem',
-              fontSize: '0.875rem',
+              gap: '0.75rem',
+              fontSize: '0.75rem',
               fontWeight: '500'
             }}>
               {sections.map((section, index) => (
-                <a
+                <div
                   key={index}
-                  href={`#section-${index}`}
+                  onClick={() => {
+                    setIsManualClick(true);
+                    setActiveSection(index);
+                    const element = document.getElementById(`section-${index}`);
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    setTimeout(() => {
+                      setIsManualClick(false);
+                    }, 800);
+                  }}
                   style={{
-                    color: activeSection === index ? '#000000' : '#666666',
-                    textDecoration: 'none',
-                    transition: 'color 0.2s'
+                    color: activeSection === index ? '#FF6B35' : '#666666',
+                    cursor: 'pointer',
+                    transition: 'color 0.2s',
+                    padding: '0.25rem 0.5rem',
+                    borderRadius: '0.25rem',
+                    backgroundColor: activeSection === index ? 'rgba(255, 107, 53, 0.1)' : 'transparent'
                   }}
                 >
                   {section.title.split(' ')[1]}
-                </a>
+                </div>
               ))}
             </div>
           </div>
@@ -366,12 +391,12 @@ export default function Home() {
               flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'flex-start',
-              padding: '4rem 3rem',
+              padding: isMobile ? '2rem 1.5rem' : '4rem 3rem',
             }}>
               <h1 style={{
                 fontFamily: 'var(--font-outfit), sans-serif',
                 fontWeight: '800',
-                fontSize: isMobile ? '4rem' : '5.5rem',
+                fontSize: isMobile ? '2.5rem' : '5.5rem',
                 color: '#FFFFFF',
                 marginBottom: '1.5rem',
                 lineHeight: 1.0,
@@ -385,7 +410,7 @@ export default function Home() {
               <p style={{
                 fontFamily: 'var(--font-inter), sans-serif',
                 fontWeight: '400',
-                fontSize: isMobile ? '1.125rem' : '1.25rem',
+                fontSize: isMobile ? '1rem' : '1.25rem',
                 color: 'rgba(255, 255, 255, 0.9)',
                 lineHeight: 1.4,
                 marginBottom: '2.5rem',
@@ -434,7 +459,7 @@ export default function Home() {
                   flexDirection: 'column',
                   justifyContent: 'center',
                   alignItems: 'flex-start',
-                  padding: '4rem 3rem',
+                  padding: isMobile ? '2rem 1.5rem' : '4rem 3rem',
                 }}>
                   {/* Content Overlay */}
                   <div style={{
@@ -445,7 +470,7 @@ export default function Home() {
                     <h2 style={{
                       fontFamily: 'var(--font-outfit), sans-serif',
                       fontWeight: '800',
-                      fontSize: isMobile ? '4rem' : '5.5rem',
+                      fontSize: isMobile ? '2.5rem' : '5.5rem',
                       color: '#FFFFFF',
                       marginBottom: '1.5rem',
                       lineHeight: 1.0,
@@ -457,7 +482,7 @@ export default function Home() {
                     <p style={{
                       fontFamily: 'var(--font-inter), sans-serif',
                       fontWeight: '400',
-                      fontSize: isMobile ? '1.125rem' : '1.25rem',
+                      fontSize: isMobile ? '1rem' : '1.25rem',
                       color: 'rgba(255, 255, 255, 0.9)',
                       lineHeight: 1.4,
                       marginBottom: '2.5rem',
@@ -509,14 +534,14 @@ export default function Home() {
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
                     alignItems: 'flex-start',
-                    padding: '4rem 3rem',
+                    padding: isMobile ? '2rem 1.5rem' : '4rem 3rem',
                     textAlign: 'left',
                     zIndex: 2
                   }}>
                     <h2 style={{
                       fontFamily: 'var(--font-outfit), sans-serif',
                       fontWeight: '800',
-                      fontSize: isMobile ? '4rem' : '5.5rem',
+                      fontSize: isMobile ? '2.5rem' : '5.5rem',
                       color: '#FFFFFF',
                       marginBottom: '0.5rem',
                       lineHeight: 1.0,
@@ -528,7 +553,7 @@ export default function Home() {
                     <div style={{
                       fontFamily: 'var(--font-outfit), sans-serif',
                       fontWeight: '700',
-                      fontSize: isMobile ? '2.25rem' : '3.25rem',
+                      fontSize: isMobile ? '1.5rem' : '3.25rem',
                       color: '#FFFFFF',
                       marginBottom: '3rem',
                       lineHeight: 1.0,
