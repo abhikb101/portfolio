@@ -1,0 +1,125 @@
+{
+  "new_portfolio_content": {
+    "hero": {
+      "title": "Structure.\nCreativity.\nExecution.",
+      "description": "An exploration of Structure, Creativity, and Execution. This interactive canvas connects live experiments, professional history, and a core design manifesto."
+    },
+    "sections": [
+      {
+        "title": "The Workshop",
+        "content": {
+          "title": "Live Experiments & Proofs",
+          "description": "This is a digital workbench. A collection of live experiments, passion projects, and technical deep-dives. Each 'trinket' is a functional piece of code you can interact with right now.",
+          "illustration": "T",
+          "accent": "01",
+          "trinkets": [
+            {
+              "title": "Touch Grass",
+              "description": "Daily streak tracker with motivational quotes",
+              "status": "LIVE",
+              "color": "#00ff88"
+            },
+            {
+              "title": "X Social Graphs",
+              "description": "Social network visualization and analytics",
+              "status": "LIVE",
+              "color": "#1da1f2"
+            },
+            {
+              "title": "Aptos Score",
+              "description": "On-chain activity and reputation scoring",
+              "status": "LIVE",
+              "color": "#ff6b35"
+            },
+            {
+              "title": "Code Tracker",
+              "description": "Real-time coding activity and productivity metrics",
+              "status": "LIVE",
+              "color": "#6366f1"
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Chronicle",
+        "content": {
+          "title": "A Record of Impact",
+          "description": "A journey of escalating impact. From crafting scalable design systems to leading full-stack teams, each role was a new challenge in building meaningful, production-grade applications.",
+          "illustration": "W",
+          "accent": "02",
+          "experiences": [
+            {
+              "title": "Senior Developer",
+              "company": "Tech Company",
+              "period": "2022 - Present",
+              "description": "Leading full-stack development, team mentorship, and architectural decisions."
+            },
+            {
+              "title": "Frontend Engineer",
+              "company": "Startup Inc",
+              "period": "2020 - 2022",
+              "description": "Built responsive web applications and scalable design systems from the ground up."
+            },
+            {
+              "title": "Junior Developer",
+              "company": "Agency Co",
+              "period": "2019 - 2020",
+              "description": "Learned the fundamentals of web development and client-side design."
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Architect",
+        "content": {
+          "title": "The Manifesto",
+          "description": "The best technology is invisible, creating a seamless bridge between a user's intent and their goal. This work lives at the intersection of on-chain data, AI, and human-centered design, driven by a passion for open-source and new web technologies.",
+          "illustration": "A",
+          "accent": "03",
+          "details": [
+            {
+              "title": "Skills & Technologies",
+              "description": "React, TypeScript, Node.js, Python, Design Systems"
+            },
+            {
+              "title": "Interests",
+              "description": "Web3, AI/ML, Open Source, Digital Art, Photography"
+            },
+            {
+              "title": "Location",
+              "description": "Based in San Francisco, working remotely"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": {
+      "title": "Abhishek - Architect & Creative Technologist",
+      "description": "An interactive canvas exploring the intersection of structure, creativity, and execution. See live projects, career history, and a design manifesto."
+    },
+    "footer": {
+      "copyright": "© 2025 Abhishek",
+      "tagline": "Structure. Creativity. Execution."
+    },
+    "design_changes": {
+      "hero_colors": {
+        "name_color": "#00ff88",
+        "title_color": "#FF6B35"
+      },
+      "section_backgrounds": {
+        "live_trinkets": "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)",
+        "work_experience": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "about_me": "linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%)"
+      },
+      "grid_layout": {
+        "type": "2x2 grid for live trinkets",
+        "features": [
+          "Hover effects with color-coded borders",
+          "LIVE status indicators",
+          "Click-to-expand functionality (ready for implementation)",
+          "Responsive design (2x2 desktop, 1x4 mobile)"
+        ]
+      }
+    }
+  }
+}

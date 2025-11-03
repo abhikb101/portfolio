@@ -1,0 +1,700 @@
+{
+  "data": {
+    "engagements": {
+      "AOC": [
+        {
+          "tweet_id": "1882888972772442365",
+          "engaged_with": "AOC",
+          "engagement_type": "reply",
+          "content": "@AOC This you? https://t.co/LfNNSxqlHx",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/923274881197895680/AbHcStkl_normal.jpg",
+          "followers": 12828119,
+          "description": "US Congresswoman, NY-14. In a modern, moral, and wealthy society, no American should be too poor to live. People-Funded, takes no lobbyist💰. Personal account.",
+          "verified": true
+        }
+      ],
+      "AlecStapp": [
+        {
+          "tweet_id": "1883000547894255913",
+          "engaged_with": "AlecStapp",
+          "engagement_type": "reply",
+          "content": "@AlecStapp Maybe add $10k/year to maintain the visa. Certainly better than the current system.",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1498170157176393731/tyrdhQ1M_normal.jpg",
+          "followers": 92787,
+          "description": "Co-founder @IFP, an innovation policy think tank",
+          "verified": false
+        }
+      ],
+      "AutismCapital": [
+        {
+          "tweet_id": "1883414173515915770",
+          "engaged_with": "AutismCapital",
+          "engagement_type": "reply",
+          "content": "@AutismCapital Yes",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1607967887305887745/pN-Bl6pc_normal.jpg",
+          "followers": 652611,
+          "description": "Citizen journalism with a humorous flair. Following Fintech, Crypto, AI, Longevity, Politics, Memes, and whatever the current thing is.",
+          "verified": false
+        },
+        {
+          "tweet_id": "1883734723631124577",
+          "engaged_with": "AutismCapital",
+          "engagement_type": "reply",
+          "content": "@AutismCapital 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1607967887305887745/pN-Bl6pc_normal.jpg",
+          "followers": 652611,
+          "description": "Citizen journalism with a humorous flair. Following Fintech, Crypto, AI, Longevity, Politics, Memes, and whatever the current thing is.",
+          "verified": false
+        },
+        {
+          "tweet_id": "1883762994854940738",
+          "engaged_with": "AutismCapital",
+          "engagement_type": "reply",
+          "content": "@AutismCapital 🔥😎",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1607967887305887745/pN-Bl6pc_normal.jpg",
+          "followers": 652611,
+          "description": "Citizen journalism with a humorous flair. Following Fintech, Crypto, AI, Longevity, Politics, Memes, and whatever the current thing is.",
+          "verified": false
+        }
+      ],
+      "BasedBeffJezos": [
+        {
+          "tweet_id": "1883407057346531565",
+          "engaged_with": "BasedBeffJezos",
+          "engagement_type": "reply",
+          "content": "@BasedBeffJezos What’s the account?",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1663808077693427716/w8CIR0hM_normal.jpg",
+          "followers": 158059,
+          "description": "founder @ e/acc // thermodynamic priest // Kardashev gradient climber // memetic warlord // building chips @extropic_ai",
+          "verified": false
+        }
+      ],
+      "BasedMikeLee": [
+        {
+          "tweet_id": "1883363459330658662",
+          "engaged_with": "BasedMikeLee",
+          "engagement_type": "reply",
+          "content": "@BasedMikeLee 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1815628975965970432/PmHJS6GD_normal.jpg",
+          "followers": 456454,
+          "description": "U.S. Senator for Utah",
+          "verified": false
+        }
+      ],
+      "DMichaelTripi": [
+        {
+          "tweet_id": "1883767977369284708",
+          "engaged_with": "DMichaelTripi",
+          "engagement_type": "reply",
+          "content": "@DMichaelTripi 🤣🤣",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1799163330826829824/M8WEbspJ_normal.jpg",
+          "followers": 50354,
+          "description": "Political Analyst | Writer | Strategist | Commentator",
+          "verified": true
+        }
+      ],
+      "DavidSHolz": [
+        {
+          "tweet_id": "1883775138925281727",
+          "engaged_with": "DavidSHolz",
+          "engagement_type": "reply",
+          "content": "@DavidSHolz Beautiful",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1605125530084184064/xXseXWbK_normal.jpg",
+          "followers": 71667,
+          "description": "founder @midjourney, prev founder leap motion, nasa, max planck",
+          "verified": false
+        }
+      ],
+      "DefiyantlyFree": [
+        {
+          "tweet_id": "1883419882924155166",
+          "engaged_with": "DefiyantlyFree",
+          "engagement_type": "reply",
+          "content": "@DefiyantlyFree Noted",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1842740427872522240/X0Sggcwq_normal.jpg",
+          "followers": 809392,
+          "description": "It’s always darkest just before the dawn. MARRIED.. No Dms.",
+          "verified": false
+        },
+        {
+          "tweet_id": "1883030235987251344",
+          "engaged_with": "DefiyantlyFree",
+          "engagement_type": "reply",
+          "content": "@DefiyantlyFree 💯",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1842740427872522240/X0Sggcwq_normal.jpg",
+          "followers": 809392,
+          "description": "It’s always darkest just before the dawn. MARRIED.. No Dms.",
+          "verified": false
+        },
+        {
+          "tweet_id": "1883419347932287029",
+          "engaged_with": "DefiyantlyFree",
+          "engagement_type": "reply",
+          "content": "@DefiyantlyFree True",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1842740427872522240/X0Sggcwq_normal.jpg",
+          "followers": 809392,
+          "description": "It’s always darkest just before the dawn. MARRIED.. No Dms.",
+          "verified": false
+        },
+        {
+          "tweet_id": "1883414962825290171",
+          "engaged_with": "DefiyantlyFree",
+          "engagement_type": "reply",
+          "content": "@DefiyantlyFree Yes",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1842740427872522240/X0Sggcwq_normal.jpg",
+          "followers": 809392,
+          "description": "It’s always darkest just before the dawn. MARRIED.. No Dms.",
+          "verified": false
+        }
+      ],
+      "DisrespectedThe": [
+        {
+          "tweet_id": "1883766096467206409",
+          "engaged_with": "DisrespectedThe",
+          "engagement_type": "reply",
+          "content": "@DisrespectedThe How times have changed",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1661866270550024192/R5peEM8R_normal.jpg",
+          "followers": 313021,
+          "description": "Mandate Freedom! DO NOT COMPLY!! Organizer of The Peoples Convoy.  Trucking Advocate turned to Freedom Fighter! #AmericaFirst thedisrespectedtrucker@mail.com",
+          "verified": false
+        }
+      ],
+      "DominicFrisby": [
+        {
+          "tweet_id": "1882730814041133551",
+          "engaged_with": "DominicFrisby",
+          "engagement_type": "reply",
+          "content": "@DominicFrisby 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1728840006330904576/Qf0jBboT_normal.jpg",
+          "followers": 67509,
+          "description": "Join me on my mission to become the number one satirical songwriter in the English-speaking world: https://www.frisbys.news  \n\nLaughter, opportunity, acclaim.",
+          "verified": true
+        }
+      ],
+      "JDVance": [
+        {
+          "tweet_id": "1883147820569612422",
+          "engaged_with": "JDVance",
+          "engagement_type": "reply",
+          "content": "@JDVance 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1817220042578173953/5r-Qpvgt_normal.jpg",
+          "followers": 3084865,
+          "description": "Christian, husband, dad. VP-elect of the United States.",
+          "verified": true
+        }
+      ],
+      "JackPosobiec": [
+        {
+          "tweet_id": "1883734543565537780",
+          "engaged_with": "JackPosobiec",
+          "engagement_type": "reply",
+          "content": "@JackPosobiec 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1834579855016394752/uljpNRL6_normal.jpg",
+          "followers": 2985103,
+          "description": "Sr Editor, @HumanEvents. Veteran Navy intel officer. Catholic. NYT Bestselling Author",
+          "verified": false
+        }
+      ],
+      "JacobBaker613": [
+        {
+          "tweet_id": "1882889768616554672",
+          "engaged_with": "JacobBaker613",
+          "engagement_type": "reply",
+          "content": "@JacobBaker613 🧐",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1743075628838961152/oQTtQTIA_normal.jpg",
+          "followers": 11132,
+          "description": " → 𝕏.\n\n/Certified everything\n\n/Tesla Investor\n\n/Free speech!\n\n/Truly Jakey of all trades\n\n/SpaceX Rules the galaxy!\nMusk is the pilot!",
+          "verified": true
+        }
+      ],
+      "KettlebellDan": [
+        {
+          "tweet_id": "1883764965015978313",
+          "engaged_with": "KettlebellDan",
+          "engagement_type": "reply",
+          "content": "@KettlebellDan @growing_daniel DeeperSeek 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1866602431909347330/ZrYxWJ4G_normal.jpg",
+          "followers": 61621,
+          "description": "𝕏 employee and founder of the prestigious Kettlebell Krüe 🦾 Virtual Life Coach",
+          "verified": true
+        }
+      ],
+      "MarioNawfal": [
+        {
+          "tweet_id": "1883764066201878538",
+          "engaged_with": "MarioNawfal",
+          "engagement_type": "reply",
+          "content": "@MarioNawfal What are the odds … ?",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1670905743619268609/pYItlWat_normal.jpg",
+          "followers": 1902795,
+          "description": "Largest Show on X | Founder @ibcgroupio",
+          "verified": false
+        }
+      ],
+      "MikeBenzCyber": [
+        {
+          "tweet_id": "1882854451456950682",
+          "engaged_with": "MikeBenzCyber",
+          "engagement_type": "reply",
+          "content": "@MikeBenzCyber Interesting",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1599999101961224197/uBSpyKN0_normal.jpg",
+          "followers": 617428,
+          "description": "Executive Director, @FFO_Freedom. Former State Dept Cyber. Author of the unpublishable monstrosity, Weapons Of Mass Deletion.",
+          "verified": false
+        }
+      ],
+      "OversightPR": [
+        {
+          "tweet_id": "1883363657838641460",
+          "engaged_with": "OversightPR",
+          "engagement_type": "reply",
+          "content": "@OversightPR @realDonaldTrump Interesting",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1657081793634263041/k5E6dHtf_normal.jpg",
+          "followers": 105170,
+          "description": "The Everyday American’s legal and investigative org battling corruption and weaponization. tips.oversightproject@heritage.org @Heritage",
+          "verified": true
+        }
+      ],
+      "PeterSweden7": [
+        {
+          "tweet_id": "1883152060469973188",
+          "engaged_with": "PeterSweden7",
+          "engagement_type": "reply",
+          "content": "@PeterSweden7 💯",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1689406782647500800/2EBrCIZx_normal.jpg",
+          "followers": 836544,
+          "description": "I'm Peter Imanuelsen | Swedish journalist | Political commentator | Supporter of freedom, kindness and liberty | Contact inquiries: See my website",
+          "verified": true
+        }
+      ],
+      "RQA": [
+        {
+          "tweet_id": "1883732381200535936",
+          "engaged_with": "RQA",
+          "engagement_type": "reply",
+          "content": "@RQA @Benioff Lmao no",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1627112639657570305/hsp8s2IU_normal.jpg",
+          "followers": 1840,
+          "description": "",
+          "verified": false
+        }
+      ],
+      "Real50Trump": [
+        {
+          "tweet_id": "1882897640087752880",
+          "engaged_with": "Real50Trump",
+          "engagement_type": "reply",
+          "content": "@Real50Trump @AOC 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1825565301611585536/gO9lHLxn_normal.jpg",
+          "followers": 2448,
+          "description": "#MAGA #AmericaFirst \nUnfiltered",
+          "verified": true
+        }
+      ],
+      "SamoBurja": [
+        {
+          "tweet_id": "1882737058239930853",
+          "engaged_with": "SamoBurja",
+          "engagement_type": "reply",
+          "content": "@SamoBurja True",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1324825063502340096/DT28Mkhl_normal.jpg",
+          "followers": 70497,
+          "description": "There's never been an immortal society. Figuring out why. Founder of @bismarckanlys.",
+          "verified": false
+        }
+      ],
+      "SvenBKock76": [
+        {
+          "tweet_id": "1883413899699212521",
+          "engaged_with": "SvenBKock76",
+          "engagement_type": "reply",
+          "content": "@SvenBKock76 True",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1864037159470034944/An9cPvAH_normal.jpg",
+          "followers": 177,
+          "description": "🇩🇪Oberfranken. At the top of Bavaria🇩🇪 . 😉 MEGA. Make Europe Great Again !!!",
+          "verified": true
+        }
+      ],
+      "TexasLindsay_": [
+        {
+          "tweet_id": "1883363289603940818",
+          "engaged_with": "TexasLindsay_",
+          "engagement_type": "reply",
+          "content": "@TexasLindsay_ @DOGE Noted",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1665059289486991361/nz1TA-8M_normal.jpg",
+          "followers": 279197,
+          "description": "Free Speech Cognoscenti | #TwitterFiles Journalist—See Highlights Tab | Auburn University Alum | War Eagle 🦅🇺🇸",
+          "verified": true
+        }
+      ],
+      "TheRabbitHole84": [
+        {
+          "tweet_id": "1883366753649975306",
+          "engaged_with": "TheRabbitHole84",
+          "engagement_type": "reply",
+          "content": "@TheRabbitHole84 True",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1522017422550528001/6AceRKJQ_normal.png",
+          "followers": 946410,
+          "description": "Navigating the discourse",
+          "verified": true
+        },
+        {
+          "tweet_id": "1882894397626634336",
+          "engaged_with": "TheRabbitHole84",
+          "engagement_type": "reply",
+          "content": "@TheRabbitHole84 Not sure how they’re figuring this out, but it’s fairly accurate",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1522017422550528001/6AceRKJQ_normal.png",
+          "followers": 946410,
+          "description": "Navigating the discourse",
+          "verified": true
+        },
+        {
+          "tweet_id": "1883029516161097797",
+          "engaged_with": "TheRabbitHole84",
+          "engagement_type": "reply",
+          "content": "@TheRabbitHole84 💯",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1522017422550528001/6AceRKJQ_normal.png",
+          "followers": 946410,
+          "description": "Navigating the discourse",
+          "verified": true
+        }
+      ],
+      "WallStreetMav": [
+        {
+          "tweet_id": "1883149491609501914",
+          "engaged_with": "WallStreetMav",
+          "engagement_type": "reply",
+          "content": "@WallStreetMav 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1482179968083836928/7prxRZ4M_normal.jpg",
+          "followers": 1573800,
+          "description": "Finance, economics, news, memes. Follow and Tap the .... (🔔 +Notify)",
+          "verified": false
+        },
+        {
+          "tweet_id": "1883153006335861094",
+          "engaged_with": "WallStreetMav",
+          "engagement_type": "reply",
+          "content": "@WallStreetMav 🎯",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1482179968083836928/7prxRZ4M_normal.jpg",
+          "followers": 1573800,
+          "description": "Finance, economics, news, memes. Follow and Tap the .... (🔔 +Notify)",
+          "verified": false
+        },
+        {
+          "tweet_id": "1882741469011706197",
+          "engaged_with": "WallStreetMav",
+          "engagement_type": "reply",
+          "content": "@WallStreetMav 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1482179968083836928/7prxRZ4M_normal.jpg",
+          "followers": 1573800,
+          "description": "Finance, economics, news, memes. Follow and Tap the .... (🔔 +Notify)",
+          "verified": false
+        }
+      ],
+      "WilliamShatner": [
+        {
+          "tweet_id": "1883541708857819208",
+          "engaged_with": "WilliamShatner",
+          "engagement_type": "reply",
+          "content": "@WilliamShatner ❤️",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1478179341582299138/2paPd3Uk_normal.jpg",
+          "followers": 2454901,
+          "description": "Father to 3 women. Canadian *NOT POLITICAL* be warned or be blocked! Calendar: https://t.co/4Jwy1dww25 Charity: https://t.co/HmIzHkPLvx No Podcasts! https://t.co/82IXIOYEVo",
+          "verified": true
+        },
+        {
+          "tweet_id": "1883571483211087936",
+          "engaged_with": "WilliamShatner",
+          "engagement_type": "reply",
+          "content": "@WilliamShatner 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1478179341582299138/2paPd3Uk_normal.jpg",
+          "followers": 2454901,
+          "description": "Father to 3 women. Canadian *NOT POLITICAL* be warned or be blocked! Calendar: https://t.co/4Jwy1dww25 Charity: https://t.co/HmIzHkPLvx No Podcasts! https://t.co/82IXIOYEVo",
+          "verified": true
+        }
+      ],
+      "andrewrsorkin": [
+        {
+          "tweet_id": "1883151571175051564",
+          "engaged_with": "andrewrsorkin",
+          "engagement_type": "reply",
+          "content": "@andrewrsorkin 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/673272991816548353/tn5thWZR_normal.jpg",
+          "followers": 963215,
+          "description": "@NYTimes Columnist/Editor \u0026 @SquawkCNBC Co-Anchor. Author, Too Big To Fail. Founder, @DealBook. Co-Creator, BILLIONS @Showtime. Co-Chair @NYPL's BLC. Proud Dad.",
+          "verified": true
+        }
+      ],
+      "bennyjohnson": [
+        {
+          "tweet_id": "1883027886611046425",
+          "engaged_with": "bennyjohnson",
+          "engagement_type": "reply",
+          "content": "@bennyjohnson 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1628474658583457793/KRPfh8Zb_normal.jpg",
+          "followers": 3326159,
+          "description": "Lets save Western Civilization together",
+          "verified": true
+        }
+      ],
+      "chamath": [
+        {
+          "tweet_id": "1883406229386809727",
+          "engaged_with": "chamath",
+          "engagement_type": "reply",
+          "content": "@chamath Bureaucracy is killing the West",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1731032508912025600/tUwQ77ei_normal.jpg",
+          "followers": 1800198,
+          "description": "God is in the details.",
+          "verified": false
+        }
+      ],
+      "dogeofficialceo": [
+        {
+          "tweet_id": "1882737859486175430",
+          "engaged_with": "dogeofficialceo",
+          "engagement_type": "reply",
+          "content": "@dogeofficialceo Violating Presidential executive orders will result in being fired",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1608804759258939392/7z_cf2bb_normal.jpg",
+          "followers": 378679,
+          "description": "Protector of Coin 🐶🪙 Self-proclaimed king of memes 👑🇮🇪",
+          "verified": false
+        }
+      ],
+      "garrytan": [
+        {
+          "tweet_id": "1883269988175479068",
+          "engaged_with": "garrytan",
+          "engagement_type": "reply",
+          "content": "@garrytan 💯",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1775927507855998976/v1mOCezH_normal.jpg",
+          "followers": 510489,
+          "description": "President \u0026 CEO @ycombinator —Founder @Initialized—designer/engineer who helps founders—San Francisco Dem accelerating the boom loop—e/acc—technology brother",
+          "verified": false
+        }
+      ],
+      "growing_daniel": [
+        {
+          "tweet_id": "1883764485762228525",
+          "engaged_with": "growing_daniel",
+          "engagement_type": "reply",
+          "content": "@growing_daniel 🔥🔥🤣🤣",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1874877699308797952/SiIODGpe_normal.jpg",
+          "followers": 136413,
+          "description": "I’m asking you to do something well",
+          "verified": false
+        }
+      ],
+      "iamyesyouareno": [
+        {
+          "tweet_id": "1882918789819584749",
+          "engaged_with": "iamyesyouareno",
+          "engagement_type": "reply",
+          "content": "@iamyesyouareno 85 times is an extreme level of hatred",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1342191297805889537/qVxvrLhq_normal.jpg",
+          "followers": 429852,
+          "description": "everything you need to know.",
+          "verified": false
+        }
+      ],
+      "iliketeslas": [
+        {
+          "tweet_id": "1883153753853001791",
+          "engaged_with": "iliketeslas",
+          "engagement_type": "reply",
+          "content": "@iliketeslas 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1844927235439955984/ih7U4LgQ_normal.jpg",
+          "followers": 11058,
+          "description": "I hate all EVs except Tesla⚡️",
+          "verified": true
+        }
+      ],
+      "jimmycarr": [
+        {
+          "tweet_id": "1883029339119522113",
+          "engaged_with": "jimmycarr",
+          "engagement_type": "reply",
+          "content": "@jimmycarr 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1792593833277927428/ddve1g1u_normal.jpg",
+          "followers": 6453307,
+          "description": "My new special Natural Born Killer is out now on @NetflixIsAJoke. Get tour tickets and more here 👇",
+          "verified": true
+        }
+      ],
+      "jk_rowling": [
+        {
+          "tweet_id": "1883148930751619232",
+          "engaged_with": "jk_rowling",
+          "engagement_type": "reply",
+          "content": "@jk_rowling 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1883231711762292736/g9rnxUNC_normal.jpg",
+          "followers": 14291277,
+          "description": "Writer sometimes known as Robert Galbraith",
+          "verified": true
+        }
+      ],
+      "kimmonismus": [
+        {
+          "tweet_id": "1883761141647901083",
+          "engaged_with": "kimmonismus",
+          "engagement_type": "reply",
+          "content": "@kimmonismus Obviously",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1728327996375719936/RW7VBJfD_normal.jpg",
+          "followers": 39720,
+          "description": "AGI plays »Go« secretly at night // (🔜e/acc) // technoOPTIMIST⌨️ // per aspera ad astra // @apples_jimmy 🍎 simp/ »Nostalgic for the future« (stole that) // 💻",
+          "verified": false
+        }
+      ],
+      "ma777hew": [
+        {
+          "tweet_id": "1883408063694254415",
+          "engaged_with": "ma777hew",
+          "engagement_type": "reply",
+          "content": "@ma777hew Roger Ver gave up his US citizenship. No pardon for Ver. Membership has its privileges.",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1864678774920388608/f0Vi4G5J_normal.jpg",
+          "followers": 107,
+          "description": "NAT SOC l INTJ https://t.co/QCNmRFpvnk https://t.co/XFc2V6ksGR    ETH 0x554ec4461bafe8a6baa7ce4fb4bc05b67c5b600e",
+          "verified": false
+        }
+      ],
+      "mazemoore": [
+        {
+          "tweet_id": "1883417949824057532",
+          "engaged_with": "mazemoore",
+          "engagement_type": "reply",
+          "content": "@mazemoore 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1615800151750152208/qeY0l05r_normal.jpg",
+          "followers": 407629,
+          "description": "Video editor. Content creator.",
+          "verified": true
+        }
+      ],
+      "nmswede": [
+        {
+          "tweet_id": "1883290016287424868",
+          "engaged_with": "nmswede",
+          "engagement_type": "reply",
+          "content": "@nmswede Yeah",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1600554214152978444/yNhUspwW_normal.jpg",
+          "followers": 7325,
+          "description": "Leading efforts @X to make HPC and AI compute the best they can be. (Ex-Supermicro, Tesla, New Mexico Consortium, University of New Mexico). Views are my own.",
+          "verified": true
+        }
+      ],
+      "piet_dev": [
+        {
+          "tweet_id": "1883730821082943619",
+          "engaged_with": "piet_dev",
+          "engagement_type": "reply",
+          "content": "@piet_dev @sama 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1810719153659293697/9lfDwh8z_normal.jpg",
+          "followers": 1168,
+          "description": "solvitur ambulando | mem/e/acc",
+          "verified": true
+        }
+      ],
+      "sfmcguire79": [
+        {
+          "tweet_id": "1882732804620026092",
+          "engaged_with": "sfmcguire79",
+          "engagement_type": "reply",
+          "content": "@sfmcguire79 Noted",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1534327250061037572/FzUJV2Yy_normal.jpg",
+          "followers": 32459,
+          "description": "Paul \u0026 Karen Levy Fellow in Campus Freedom @goACTA. Writings in @WSJ, @nypost, @Newsweek, @FoxNews, @RCPolitics, etc. Opinions are my own. RT ≠ endorsement.",
+          "verified": true
+        }
+      ],
+      "shaunmmaguire": [
+        {
+          "tweet_id": "1883406720548188186",
+          "engaged_with": "shaunmmaguire",
+          "engagement_type": "reply",
+          "content": "@shaunmmaguire The throughout in the Vegas tunnels is already better than an average subway btw. \n\nIt’s a myth that subways are super efficient.",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1679256030109384704/Dt1KkqF7_normal.jpg",
+          "followers": 210170,
+          "description": "Partner @sequoia // @caltech physics PhD",
+          "verified": true
+        }
+      ],
+      "stillgray": [
+        {
+          "tweet_id": "1883762585876742169",
+          "engaged_with": "stillgray",
+          "engagement_type": "reply",
+          "content": "@stillgray No matter how often I tell people that I’m a 5000-year-old alien time traveler, they don’t believe me 😂",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1758737917638508544/lmdvybKp_normal.jpg",
+          "followers": 1197895,
+          "description": "I say the quiet part out loud. Co-host of the Other View Podcast (@otherviewpod)",
+          "verified": false
+        },
+        {
+          "tweet_id": "1883769319462694935",
+          "engaged_with": "stillgray",
+          "engagement_type": "reply",
+          "content": "@stillgray #5 has a better name though",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1758737917638508544/lmdvybKp_normal.jpg",
+          "followers": 1197895,
+          "description": "I say the quiet part out loud. Co-host of the Other View Podcast (@otherviewpod)",
+          "verified": false
+        },
+        {
+          "tweet_id": "1883763757689761830",
+          "engaged_with": "stillgray",
+          "engagement_type": "reply",
+          "content": "@stillgray Suicidal empathy (@GadSaad)",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1758737917638508544/lmdvybKp_normal.jpg",
+          "followers": 1197895,
+          "description": "I say the quiet part out loud. Co-host of the Other View Podcast (@otherviewpod)",
+          "verified": false
+        }
+      ],
+      "waitbutwhy": [
+        {
+          "tweet_id": "1882919924584305098",
+          "engaged_with": "waitbutwhy",
+          "engagement_type": "reply",
+          "content": "@waitbutwhy 💯",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/378800000096549990/2b5b8a614e16b1527ebb75e1a7266d85_normal.jpeg",
+          "followers": 869424,
+          "description": "Writer, infant",
+          "verified": true
+        }
+      ],
+      "webflite": [
+        {
+          "tweet_id": "1883421780024631746",
+          "engaged_with": "webflite",
+          "engagement_type": "reply",
+          "content": "@webflite Good-looking plane",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1715243435077062656/1dVwu_vT_normal.jpg",
+          "followers": 911415,
+          "description": "Bringing you the best Aviation related content daily. ❤️",
+          "verified": true
+        }
+      ],
+      "xDaily": [
+        {
+          "tweet_id": "1883028170888417395",
+          "engaged_with": "xDaily",
+          "engagement_type": "reply",
+          "content": "@xDaily This report is false. I sent no such email. \n\nWSJ is lying.",
+          "engaged_user_profile_image": "https://pbs.twimg.com/profile_images/1515124606583152648/4bZaW28-_normal.jpg",
+          "followers": 316352,
+          "description": "Your #1 News source on everything 𝕏 + xAI | Contributors: @HXMnCK, @LohanSimpson @xUpdatesRadar and @swak_12 I | Hit Follow and sign up for notifications! 🔔",
+          "verified": true
+        }
+      ]
+    },
+    "user": {
+      "description": "",
+      "followers_count": 214627328,
+      "id": 44196397,
+      "name": "Elon Musk",
+      "profile_image_url": "https://pbs.twimg.com/profile_images/1874558173962481664/8HSTqIlD_normal.jpg",
+      "screen_name": "elonmusk",
+      "verified": true
+    }
+  },
+  "success": true
+}

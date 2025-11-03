@@ -1,0 +1,98 @@
+{
+  "original_porta_content": {
+    "hero": {
+      "title": "One Identity.\nEvery Chain.\nYour Control.",
+      "description": "Forge your on-chain identity. Unify your wallets, socials, and achievements into a single, sovereign passport, powered by zero-knowledge proofs."
+    },
+    "sections": [
+      {
+        "title": "The Scattering",
+        "content": {
+          "title": "Your On-Chain Life is Fragmented",
+          "description": "Your DeFi achievements are on one chain, your governance history on another, your social capital locked in web2. Each wallet is a separate, anonymous actor.",
+          "illustration": "S",
+          "accent": "01",
+          "principles": [
+            {
+              "title": "Fragmented Identity",
+              "description": "Your true reputation is invisible and unrecognized."
+            },
+            {
+              "title": "Scattered Achievements",
+              "description": "You've done the work, but have nothing to show for it."
+            },
+            {
+              "title": "Anonymous Actors",
+              "description": "Each wallet is a separate, unconnected identity."
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Forge",
+        "content": {
+          "title": "Unify Your Digital Self",
+          "description": "Porta gives you the tools to forge a comprehensive, private passport from the scattered pieces of your on-chain life. Connect your wallets, link your socials, and mint a single, verifiable asset.",
+          "illustration": "F",
+          "accent": "02",
+          "features": [
+            {
+              "title": "Connect Your Wallets",
+              "description": "Unify all your on-chain activity into one identity."
+            },
+            {
+              "title": "Link Your Socials",
+              "description": "Bridge your web2 social capital to web3."
+            },
+            {
+              "title": "Mint Your Passport",
+              "description": "Create a single, verifiable asset representing your reputation."
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Ledger",
+        "content": {
+          "title": "A Living Ledger of Your Reputation",
+          "description": "This passport is more than proof-of-humanity; it's the foundational layer for a more meritocratic web3. A future where trust is verifiable, access is earned, and your history is your most valuable asset.",
+          "illustration": "L",
+          "accent": "03",
+          "principles": [
+            {
+              "title": "Verifiable Trust",
+              "description": "Build a future where trust is earned and proven."
+            },
+            {
+              "title": "Meritocratic Access",
+              "description": "Access based on your verifiable reputation and history."
+            },
+            {
+              "title": "Your History as Asset",
+              "description": "Your on-chain history becomes your most valuable asset."
+            }
+          ]
+        }
+      },
+      {
+        "title": "The Foundry",
+        "content": {
+          "title": "The Foundry is Open",
+          "description": "This is not a finished product. This is an invitation to the ground floor. We are seeking pioneers to help forge the first generation of sovereign identities.",
+          "illustration": "F",
+          "accent": "04",
+          "cta": "The future is invite-only. Join the pioneers."
+        }
+      }
+    ],
+    "metadata": {
+      "title": "PORTA - Unlock the On-chain Economy",
+      "description": "Porta is your private passport to a more trusted and accessible Superchain. Prove you're a unique human, unlock compliant DeFi, and move assets seamlessly—all with one secure identity."
+    },
+    "footer": {
+      "copyright": "© 2025 PORTA",
+      "tagline": "Future of on-chain identity"
+    }
+  }
+}
+
