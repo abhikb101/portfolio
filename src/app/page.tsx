@@ -16,8 +16,8 @@ export default function Home() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   // Default widget data
   const defaultWidgetData = [
-    { x: 50, y: 50, width: 506, height: 900 },
-    { x: 450, y: 50, width: 450, height: 450 }
+    { x: 50, y: 50, width: 405, height: 720 },
+    { x: 580, y: 50, width: 450, height: 450 }
   ];
 
   // Initialize widgetData - will be set after loading from localStorage
@@ -223,13 +223,35 @@ export default function Home() {
         const dragHandle = widget.querySelector('.drag-handle') as HTMLElement;
         const resizeHandle = resizeHandlesRefs.current[index];
 
+        // Disable iframe pointer events during drag for better performance
+        const iframe = widget.querySelector('iframe');
+
         const drag = Draggable.create(widget, {
           type: 'x,y',
           handle: dragHandle || widget,
           bounds: container,
           edgeResistance: 0.65,
           allowContextMenu: false,
+          onPress: function () {
+            // Disable iframe interactions during drag
+            if (iframe) {
+              (iframe as HTMLIFrameElement).style.pointerEvents = 'none';
+            }
+            // Add hardware acceleration hint
+            gsap.set(widget, { willChange: 'transform' });
+          },
           onDrag: function () {
+            // Don't update state during drag - only update on drag end for performance
+            // GSAP handles the transform updates directly, no React re-render needed
+          },
+          onDragEnd: function () {
+            // Re-enable iframe interactions
+            if (iframe) {
+              (iframe as HTMLIFrameElement).style.pointerEvents = 'auto';
+            }
+            // Remove hardware acceleration hint
+            gsap.set(widget, { willChange: 'auto' });
+            // Update state only once at the end
             setWidgetData(prev => {
               const newData = [...prev];
               newData[index] = {
@@ -240,16 +262,12 @@ export default function Home() {
               return newData;
             });
           },
-          onDragEnd: function () {
-            setWidgetData(prev => {
-              const newData = [...prev];
-              newData[index] = {
-                ...newData[index],
-                x: this.x,
-                y: this.y
-              };
-              return newData;
-            });
+          onRelease: function () {
+            // Re-enable iframe if released without dragging
+            if (iframe) {
+              (iframe as HTMLIFrameElement).style.pointerEvents = 'auto';
+            }
+            gsap.set(widget, { willChange: 'auto' });
           }
         })[0];
 
@@ -265,6 +283,9 @@ export default function Home() {
           let startWidth = 0;
           let startHeight = 0;
 
+          // Get iframe reference for resize optimization
+          const iframe = widget.querySelector('iframe');
+
           const resize = Draggable.create(resizeHandle, {
             type: 'x,y',
             // Prevent resize from triggering widget drag
@@ -272,6 +293,12 @@ export default function Home() {
             onPress: function () {
               // Disable widget dragging while resizing
               if (drag) drag.disable();
+              // Disable iframe interactions during resize
+              if (iframe) {
+                (iframe as HTMLIFrameElement).style.pointerEvents = 'none';
+              }
+              // Add hardware acceleration hint
+              gsap.set(widget, { willChange: 'width, height, transform' });
               const widgetRect = widget.getBoundingClientRect();
               startPointerX = this.pointerX;
               startPointerY = this.pointerY;
@@ -287,6 +314,7 @@ export default function Home() {
               const newWidth = Math.max(200, startWidth + deltaX);
               const newHeight = Math.max(150, startHeight + deltaY);
 
+              // Only update transform, no state updates during drag for performance
               gsap.set(widget, {
                 width: newWidth,
                 height: newHeight
@@ -295,15 +323,7 @@ export default function Home() {
               // Keep resize handle anchored to bottom-right corner
               gsap.set(resizeHandle, { x: 0, y: 0 });
 
-              setWidgetData(prev => {
-                const newData = [...prev];
-                newData[index] = {
-                  ...newData[index],
-                  width: newWidth,
-                  height: newHeight
-                };
-                return newData;
-              });
+              // Don't update state during drag - only update on drag end
             },
             onDragEnd: function () {
               const deltaX = this.pointerX - startPointerX;
@@ -315,6 +335,15 @@ export default function Home() {
               // Ensure resize handle is anchored to bottom-right
               gsap.set(resizeHandle, { x: 0, y: 0 });
 
+              // Re-enable iframe interactions
+              if (iframe) {
+                (iframe as HTMLIFrameElement).style.pointerEvents = 'auto';
+              }
+
+              // Remove hardware acceleration hint
+              gsap.set(widget, { willChange: 'auto' });
+
+              // Update state only once at the end
               setWidgetData(prev => {
                 const newData = [...prev];
                 newData[index] = {
@@ -330,6 +359,11 @@ export default function Home() {
             onRelease: function () {
               // Reset resize handle position
               gsap.set(resizeHandle, { x: 0, y: 0 });
+              // Re-enable iframe if released without dragging
+              if (iframe) {
+                (iframe as HTMLIFrameElement).style.pointerEvents = 'auto';
+              }
+              gsap.set(widget, { willChange: 'auto' });
               // Re-enable widget dragging if released without dragging
               if (drag) drag.enable();
             }
@@ -556,7 +590,7 @@ export default function Home() {
                       ref={(el) => { trinketRefs.current[0] = el; }}
                       style={{
                         position: 'absolute',
-                        transform: `translate(${widgetData[0].x}px, ${widgetData[0].y}px)`,
+                        transform: `translate3d(${widgetData[0].x}px, ${widgetData[0].y}px, 0)`,
                         width: `${widgetData[0].width}px`,
                         height: `${widgetData[0].height}px`,
                         background: '#FFFFFF',
@@ -567,7 +601,9 @@ export default function Home() {
                         padding: '0',
                         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                         cursor: 'move',
-                        zIndex: 1
+                        zIndex: 1,
+                        backfaceVisibility: 'hidden',
+                        transformStyle: 'preserve-3d'
                       }}
                       onMouseEnter={(e) => {
                         if (!draggableInstances.current[0]?.isDragging) {
@@ -695,7 +731,7 @@ export default function Home() {
                       ref={(el) => { trinketRefs.current[1] = el; }}
                       style={{
                         position: 'absolute',
-                        transform: `translate(${widgetData[1].x}px, ${widgetData[1].y}px)`,
+                        transform: `translate3d(${widgetData[1].x}px, ${widgetData[1].y}px, 0)`,
                         width: `${widgetData[1].width}px`,
                         height: `${widgetData[1].height}px`,
                         background: '#FFFFFF',
@@ -706,7 +742,9 @@ export default function Home() {
                         padding: '2rem',
                         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
                         cursor: 'move',
-                        zIndex: 1
+                        zIndex: 1,
+                        backfaceVisibility: 'hidden',
+                        transformStyle: 'preserve-3d'
                       }}
                       onMouseEnter={(e) => {
                         if (!draggableInstances.current[1]?.isDragging) {
@@ -879,7 +917,7 @@ export default function Home() {
                 allow="fullscreen"
               />
             )}
-            {expandedTrinket === 1 && <XSocialGraphsTrinket />}
+            {expandedTrinket === 1 && <XSocialGraphsTrinket onClose={closeFullscreen} />}
           </div>
         </div>
       )}

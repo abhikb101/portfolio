@@ -1,160 +1,174 @@
 'use client';
 
 import { useState } from 'react';
+import { useXGraphData } from './useXGraphData';
+import NetworkGraph from './NetworkGraph';
 
-export default function XSocialGraphsTrinket() {
-    const [followers, setFollowers] = useState(1247);
-    const [following, setFollowing] = useState(89);
-    const [posts, setPosts] = useState(156);
+interface XSocialGraphsTrinketProps {
+    onClose?: () => void;
+}
+
+export default function XSocialGraphsTrinket({ onClose }: XSocialGraphsTrinketProps = {}) {
+    const [searchUsername, setSearchUsername] = useState('');
+    const { searchUser, data, isLoading, error } = useXGraphData();
+
+    const handleSearch = () => {
+        if (searchUsername.trim()) {
+            searchUser(searchUsername);
+        }
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
 
     return (
-        <div style={{
-            width: '100%',
-            height: '100%',
-            background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)',
-            color: '#FFFFFF',
-            fontFamily: 'var(--font-inter), system-ui, -apple-system, sans-serif',
-            padding: '0',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center'
-        }}>
-            {/* Network Visualization */}
-            <div style={{
-                background: 'rgba(29, 161, 242, 0.1)',
-                border: '2px solid #1da1f2',
-                borderRadius: '1rem',
-                padding: '3rem 2rem',
-                marginBottom: '3rem',
-                textAlign: 'center',
-                maxWidth: '800px',
-                width: '100%'
-            }}>
-                <div style={{
-                    fontSize: '3rem',
-                    fontWeight: '800',
-                    color: '#1da1f2',
-                    marginBottom: '1rem',
-                    fontFamily: 'var(--font-outfit), sans-serif'
-                }}>
-                    Network Analysis
-                </div>
-                <div style={{
-                    fontSize: '1.25rem',
-                    color: 'rgba(255, 255, 255, 0.8)',
-                    marginBottom: '2rem'
-                }}>
-                    Interactive social network visualization
-                </div>
-
-                {/* Mock Network Graph */}
-                <div style={{
-                    width: '100%',
-                    height: '300px',
-                    background: 'rgba(29, 161, 242, 0.05)',
-                    border: '1px solid rgba(29, 161, 242, 0.2)',
-                    borderRadius: '0.5rem',
+        <div
+            style={{
+                width: '100%',
+                height: '100%',
+                backgroundImage: `
+                    radial-gradient(circle, #ccc 1px, transparent 1px)
+                `,
+                backgroundSize: '20px 20px',
+                backgroundPosition: '0 0',
+                backgroundColor: '#FAFAFA',
+                display: 'flex',
+                flexDirection: 'column',
+                fontFamily: 'var(--font-inter), system-ui, -apple-system, sans-serif',
+                padding: '0',
+                overflow: 'hidden',
+                position: 'relative',
+            }}
+        >
+            {/* Search Header */}
+            <div
+                style={{
                     display: 'flex',
+                    gap: '0.5rem',
+                    padding: '1rem',
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    backdropFilter: 'blur(10px)',
+                    borderBottom: '1px solid #E5E5E5',
+                    position: 'relative',
+                    zIndex: 10,
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1.125rem',
-                    color: 'rgba(255, 255, 255, 0.6)'
-                }}>
-                    Interactive Network Graph Visualization
-                </div>
+                }}
+            >
+                <input
+                    type="text"
+                    value={searchUsername}
+                    onChange={(e) => setSearchUsername(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Enter Twitter username..."
+                    style={{
+                        flex: 1,
+                        padding: '0.75rem 1rem',
+                        border: '1px solid #E5E5E5',
+                        borderRadius: '0.5rem',
+                        fontSize: '0.875rem',
+                        outline: 'none',
+                        color: '#1A1A1A',
+                        background: '#FFFFFF',
+                    }}
+                    className="placeholder:text-gray-500"
+                />
+                <button
+                    onClick={handleSearch}
+                    disabled={isLoading}
+                    style={{
+                        padding: '0.75rem 1.5rem',
+                        background: isLoading ? '#ccc' : '#FF6B35',
+                        color: '#FFFFFF',
+                        border: 'none',
+                        borderRadius: '0.5rem',
+                        cursor: isLoading ? 'not-allowed' : 'pointer',
+                        fontSize: '0.875rem',
+                        fontWeight: '600',
+                    }}
+                >
+                    {isLoading ? 'Searching...' : 'Search'}
+                </button>
+                {/* Close Button - Only show if onClose is provided */}
+                {onClose && (
+                    <button
+                        onClick={onClose}
+                        style={{
+                            background: 'transparent',
+                            border: '1px solid #E5E5E5',
+                            borderRadius: '0.5rem',
+                            width: '2.5rem',
+                            height: '2.5rem',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            color: '#666666',
+                            fontSize: '1.5rem',
+                            fontWeight: '300',
+                            transition: 'all 0.2s ease',
+                            flexShrink: 0,
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.background = '#FF6B35';
+                            e.currentTarget.style.color = '#FFFFFF';
+                            e.currentTarget.style.borderColor = '#FF6B35';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.background = 'transparent';
+                            e.currentTarget.style.color = '#666666';
+                            e.currentTarget.style.borderColor = '#E5E5E5';
+                        }}
+                        aria-label="Close"
+                    >
+                        ×
+                    </button>
+                )}
             </div>
 
-            {/* Stats Grid */}
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                gap: '2rem',
-                marginBottom: '3rem',
-                width: '100%',
-                maxWidth: '800px'
-            }}>
-                <div style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '0.75rem',
-                    padding: '2rem',
-                    textAlign: 'center'
-                }}>
-                    <div style={{ fontSize: '3rem', fontWeight: '700', color: '#1da1f2', marginBottom: '0.5rem' }}>
-                        {followers.toLocaleString()}
-                    </div>
-                    <div style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Followers</div>
+            {/* Error Message */}
+            {error && (
+                <div
+                    style={{
+                        padding: '0.75rem 1rem',
+                        background: '#fee',
+                        color: '#c00',
+                        fontSize: '0.875rem',
+                        borderBottom: '1px solid #E5E5E5',
+                    }}
+                >
+                    {error}
                 </div>
-                <div style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '0.75rem',
-                    padding: '2rem',
-                    textAlign: 'center'
-                }}>
-                    <div style={{ fontSize: '3rem', fontWeight: '700', color: '#1da1f2', marginBottom: '0.5rem' }}>
-                        {following}
-                    </div>
-                    <div style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Following</div>
-                </div>
-                <div style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '0.75rem',
-                    padding: '2rem',
-                    textAlign: 'center'
-                }}>
-                    <div style={{ fontSize: '3rem', fontWeight: '700', color: '#1da1f2', marginBottom: '0.5rem' }}>
-                        {posts}
-                    </div>
-                    <div style={{ color: 'rgba(255, 255, 255, 0.7)' }}>Posts</div>
-                </div>
-            </div>
+            )}
 
-            {/* Analytics */}
-            <div style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                borderRadius: '0.75rem',
-                padding: '2rem',
-                width: '100%',
-                maxWidth: '800px'
-            }}>
-                <h3 style={{
-                    fontFamily: 'var(--font-outfit), sans-serif',
-                    fontWeight: '700',
-                    fontSize: '1.5rem',
-                    color: '#FFFFFF',
-                    marginBottom: '1rem',
-                    textAlign: 'center'
-                }}>
-                    Engagement Analytics
-                </h3>
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                    gap: '1rem'
-                }}>
-                    <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.5rem', fontWeight: '600', color: '#1da1f2' }}>2.4K</div>
-                        <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.875rem' }}>Avg Likes</div>
-                    </div>
-                    <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.5rem', fontWeight: '600', color: '#1da1f2' }}>156</div>
-                        <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.875rem' }}>Avg Retweets</div>
-                    </div>
-                    <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.5rem', fontWeight: '600', color: '#1da1f2' }}>89</div>
-                        <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.875rem' }}>Avg Comments</div>
-                    </div>
-                    <div style={{ textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.5rem', fontWeight: '600', color: '#1da1f2' }}>4.2%</div>
-                        <div style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.875rem' }}>Engagement Rate</div>
-                    </div>
+            {/* Graph Container */}
+            {data && (
+                <div style={{ flex: 1, minHeight: 0, overflow: 'hidden' }}>
+                    <NetworkGraph
+                        username={data.user.screen_name}
+                        userData={data.user}
+                        engagements={data.engagements}
+                    />
                 </div>
-            </div>
+            )}
+
+            {/* Empty State */}
+            {!data && !isLoading && (
+                <div
+                    style={{
+                        flex: 1,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#666666',
+                        fontSize: '0.875rem',
+                    }}
+                >
+                    Enter a username to visualize the social graph
+                </div>
+            )}
         </div>
     );
 }
-
