@@ -86,7 +86,7 @@ export default function NetworkGraph({ username, userData, engagements }: Networ
                     {
                         id: username,
                         label: username,
-                        value: 10,
+                        value: 10 as number,
                         shape: 'circularImage',
                         image: userData.profile_image_url,
                         borderWidth: 4,
