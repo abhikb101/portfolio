@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Playfair_Display, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -64,6 +65,12 @@ export default function RootLayout({
         className={`${outfit.variable} ${playfair.variable} ${inter.variable} antialiased`}
       >
         {children}
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="a1d056a3-d59b-451d-b3a5-be4322320df0"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
