@@ -151,9 +151,27 @@ export default function Home() {
     }
   ];
 
+  // Enhanced mobile detection using industry standard (user agent + dimensions + touch)
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      if (typeof window === 'undefined') {
+        setIsMobile(false);
+        return;
+      }
+
+      // Check user agent
+      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+      const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+      const isMobileUA = mobileRegex.test(userAgent);
+
+      // Check screen dimensions (industry standard: < 768px width)
+      const isSmallScreen = window.innerWidth < 768;
+
+      // Check for touch device
+      const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+      // Mobile if: mobile user agent OR (small screen AND touch device)
+      setIsMobile(isMobileUA || (isSmallScreen && hasTouchScreen));
     };
 
     checkMobile();
@@ -223,8 +241,8 @@ export default function Home() {
         const dragHandle = widget.querySelector('.drag-handle') as HTMLElement;
         const resizeHandle = resizeHandlesRefs.current[index];
 
-        // Disable iframe pointer events during drag for better performance
-        const iframe = widget.querySelector('iframe');
+        // Cache iframe reference once to avoid repeated DOM queries
+        const iframe = widget.querySelector('iframe') as HTMLIFrameElement | null;
 
         const drag = Draggable.create(widget, {
           type: 'x,y',
@@ -232,10 +250,12 @@ export default function Home() {
           bounds: container,
           edgeResistance: 0.65,
           allowContextMenu: false,
+          // Reduce drag sensitivity for smoother performance
+          force3D: true,
           onPress: function () {
             // Disable iframe interactions during drag
             if (iframe) {
-              (iframe as HTMLIFrameElement).style.pointerEvents = 'none';
+              iframe.style.pointerEvents = 'none';
             }
             // Add hardware acceleration hint
             gsap.set(widget, { willChange: 'transform' });
@@ -247,25 +267,27 @@ export default function Home() {
           onDragEnd: function () {
             // Re-enable iframe interactions
             if (iframe) {
-              (iframe as HTMLIFrameElement).style.pointerEvents = 'auto';
+              iframe.style.pointerEvents = 'auto';
             }
             // Remove hardware acceleration hint
             gsap.set(widget, { willChange: 'auto' });
-            // Update state only once at the end
-            setWidgetData(prev => {
-              const newData = [...prev];
-              newData[index] = {
-                ...newData[index],
-                x: this.x,
-                y: this.y
-              };
-              return newData;
+            // Update state only once at the end using requestAnimationFrame for smoothness
+            requestAnimationFrame(() => {
+              setWidgetData(prev => {
+                const newData = [...prev];
+                newData[index] = {
+                  ...newData[index],
+                  x: this.x,
+                  y: this.y
+                };
+                return newData;
+              });
             });
           },
           onRelease: function () {
             // Re-enable iframe if released without dragging
             if (iframe) {
-              (iframe as HTMLIFrameElement).style.pointerEvents = 'auto';
+              iframe.style.pointerEvents = 'auto';
             }
             gsap.set(widget, { willChange: 'auto' });
           }
@@ -282,23 +304,23 @@ export default function Home() {
           let startPointerY = 0;
           let startWidth = 0;
           let startHeight = 0;
-
-          // Get iframe reference for resize optimization
-          const iframe = widget.querySelector('iframe');
+          let rafId: number | null = null;
 
           const resize = Draggable.create(resizeHandle, {
             type: 'x,y',
             // Prevent resize from triggering widget drag
             allowContextMenu: false,
+            force3D: true,
             onPress: function () {
               // Disable widget dragging while resizing
               if (drag) drag.disable();
               // Disable iframe interactions during resize
               if (iframe) {
-                (iframe as HTMLIFrameElement).style.pointerEvents = 'none';
+                iframe.style.pointerEvents = 'none';
               }
               // Add hardware acceleration hint
               gsap.set(widget, { willChange: 'width, height, transform' });
+              // Cache initial values - avoid getBoundingClientRect during drag
               const widgetRect = widget.getBoundingClientRect();
               startPointerX = this.pointerX;
               startPointerY = this.pointerY;
@@ -308,24 +330,38 @@ export default function Home() {
               gsap.set(resizeHandle, { x: 0, y: 0 });
             },
             onDrag: function () {
-              const deltaX = this.pointerX - startPointerX;
-              const deltaY = this.pointerY - startPointerY;
+              // Cancel any pending RAF updates
+              if (rafId !== null) {
+                cancelAnimationFrame(rafId);
+              }
 
-              const newWidth = Math.max(200, startWidth + deltaX);
-              const newHeight = Math.max(150, startHeight + deltaY);
+              // Throttle resize updates using requestAnimationFrame
+              rafId = requestAnimationFrame(() => {
+                const deltaX = this.pointerX - startPointerX;
+                const deltaY = this.pointerY - startPointerY;
 
-              // Only update transform, no state updates during drag for performance
-              gsap.set(widget, {
-                width: newWidth,
-                height: newHeight
+                const newWidth = Math.max(200, startWidth + deltaX);
+                const newHeight = Math.max(150, startHeight + deltaY);
+
+                // Batch GSAP updates for better performance
+                gsap.set(widget, {
+                  width: newWidth,
+                  height: newHeight
+                });
+
+                // Keep resize handle anchored to bottom-right corner
+                gsap.set(resizeHandle, { x: 0, y: 0 });
               });
-
-              // Keep resize handle anchored to bottom-right corner
-              gsap.set(resizeHandle, { x: 0, y: 0 });
 
               // Don't update state during drag - only update on drag end
             },
             onDragEnd: function () {
+              // Cancel any pending RAF updates
+              if (rafId !== null) {
+                cancelAnimationFrame(rafId);
+                rafId = null;
+              }
+
               const deltaX = this.pointerX - startPointerX;
               const deltaY = this.pointerY - startPointerY;
 
@@ -337,31 +373,38 @@ export default function Home() {
 
               // Re-enable iframe interactions
               if (iframe) {
-                (iframe as HTMLIFrameElement).style.pointerEvents = 'auto';
+                iframe.style.pointerEvents = 'auto';
               }
 
               // Remove hardware acceleration hint
               gsap.set(widget, { willChange: 'auto' });
 
-              // Update state only once at the end
-              setWidgetData(prev => {
-                const newData = [...prev];
-                newData[index] = {
-                  ...newData[index],
-                  width: newWidth,
-                  height: newHeight
-                };
-                return newData;
+              // Update state only once at the end using requestAnimationFrame
+              requestAnimationFrame(() => {
+                setWidgetData(prev => {
+                  const newData = [...prev];
+                  newData[index] = {
+                    ...newData[index],
+                    width: newWidth,
+                    height: newHeight
+                  };
+                  return newData;
+                });
               });
               // Re-enable widget dragging after resize
               if (drag) drag.enable();
             },
             onRelease: function () {
+              // Cancel any pending RAF updates
+              if (rafId !== null) {
+                cancelAnimationFrame(rafId);
+                rafId = null;
+              }
               // Reset resize handle position
               gsap.set(resizeHandle, { x: 0, y: 0 });
               // Re-enable iframe if released without dragging
               if (iframe) {
-                (iframe as HTMLIFrameElement).style.pointerEvents = 'auto';
+                iframe.style.pointerEvents = 'auto';
               }
               gsap.set(widget, { willChange: 'auto' });
               // Re-enable widget dragging if released without dragging
@@ -413,6 +456,59 @@ export default function Home() {
       }
     }
   }, [widgetData, positionsInitialized]);
+
+  // Mobile lock screen - show if mobile device detected
+  if (isMobile) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        width: '100vw',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#0a0a0a',
+        color: '#FFFFFF',
+        fontFamily: 'var(--font-inter), system-ui, -apple-system, sans-serif',
+        padding: '2rem',
+        textAlign: 'center'
+      }}>
+        <div style={{
+          maxWidth: '500px'
+        }}>
+          <div style={{
+            fontSize: '3rem',
+            marginBottom: '1.5rem'
+          }}>
+            🔒
+          </div>
+          <h1 style={{
+            fontFamily: 'var(--font-outfit), sans-serif',
+            fontWeight: '700',
+            fontSize: '2rem',
+            marginBottom: '1rem',
+            color: '#FFFFFF'
+          }}>
+            Desktop Experience Required
+          </h1>
+          <p style={{
+            fontSize: '1.125rem',
+            lineHeight: 1.6,
+            color: '#CCCCCC',
+            marginBottom: '2rem'
+          }}>
+            This interactive workspace is optimized for desktop browsers. Please visit on a laptop or desktop computer for the full experience.
+          </p>
+          <div style={{
+            fontSize: '0.875rem',
+            color: '#999999',
+            fontStyle: 'italic'
+          }}>
+            Best experienced on screens 768px and wider
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{
@@ -558,6 +654,34 @@ export default function Home() {
               borderTop: index > 0 ? '1px solid #F0F0F0' : 'none'
             }}
           >
+            {/* Twitter Link - Bottom Right (Workshop Section Only) */}
+            {index === 0 && (
+              <a
+                href="https://twitter.com/VapourMafia"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  position: 'absolute',
+                  bottom: '2rem',
+                  right: '2rem',
+                  fontFamily: 'var(--font-inter), system-ui, -apple-system, sans-serif',
+                  fontSize: '1rem',
+                  fontWeight: '700',
+                  color: '#000000',
+                  textDecoration: 'none',
+                  transition: 'opacity 0.2s ease',
+                  zIndex: 100
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = '0.7';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = '1';
+                }}
+              >
+                @VapourMafia
+              </a>
+            )}
             <div style={{
               width: '100%',
               maxWidth: isMobile ? '100%' : '1450px',
@@ -603,7 +727,10 @@ export default function Home() {
                         cursor: 'move',
                         zIndex: 1,
                         backfaceVisibility: 'hidden',
-                        transformStyle: 'preserve-3d'
+                        transformStyle: 'preserve-3d',
+                        // CSS containment to isolate rendering and prevent layout thrashing
+                        contain: 'layout style paint',
+                        isolation: 'isolate'
                       }}
                       onMouseEnter={(e) => {
                         if (!draggableInstances.current[0]?.isDragging) {
@@ -686,6 +813,7 @@ export default function Home() {
                             pointerEvents: 'auto'
                           }}
                           allow="fullscreen"
+                          loading="lazy"
                           onClick={(e) => {
                             // Allow iframe interaction, but also allow expanding
                             e.stopPropagation();
@@ -744,7 +872,10 @@ export default function Home() {
                         cursor: 'move',
                         zIndex: 1,
                         backfaceVisibility: 'hidden',
-                        transformStyle: 'preserve-3d'
+                        transformStyle: 'preserve-3d',
+                        // CSS containment to isolate rendering and prevent layout thrashing
+                        contain: 'layout style paint',
+                        isolation: 'isolate'
                       }}
                       onMouseEnter={(e) => {
                         if (!draggableInstances.current[1]?.isDragging) {
