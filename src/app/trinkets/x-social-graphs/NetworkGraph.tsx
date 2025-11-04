@@ -82,6 +82,11 @@ export default function NetworkGraph({ username, userData, engagements }: Networ
 
                 if (!isMounted || !containerRef.current) return;
 
+                // Define border width and size as numbers to avoid literal type inference
+                const mainBorderWidth: number = 4;
+                const engagedBorderWidth: number = 4;
+                const mainNodeSize: number = 50;
+
                 const nodes = new DataSet([
                     {
                         id: username,
@@ -89,8 +94,8 @@ export default function NetworkGraph({ username, userData, engagements }: Networ
                         value: 10 as number,
                         shape: 'circularImage',
                         image: userData.profile_image_url,
-                        borderWidth: 4,
-                        size: 50,
+                        borderWidth: mainBorderWidth,
+                        size: mainNodeSize,
                         color: {
                             border: '#FF6B35',
                             background: '#FFFFFF',
@@ -116,70 +121,85 @@ export default function NetworkGraph({ username, userData, engagements }: Networ
                     },
                 ]);
 
-                const edges = new DataSet([]);
+                const edges = new DataSet<any>([]);
 
                 // Store references for later manipulation
                 nodesRef.current = nodes;
                 edgesRef.current = edges;
 
                 Object.entries(engagements).forEach(([engagedWith, interactions]) => {
+                    // Skip if this is the same as the main user (case-insensitive)
+                    // This prevents duplicate node errors
+                    if (engagedWith.toLowerCase() === username.toLowerCase()) {
+                        return;
+                    }
+
                     const userInfo = interactions[0];
                     const interactionCount = interactions.length;
                     const edgeWidth = Math.max(1, Math.min(4, Math.log(interactionCount) / 2 + 1));
 
-                    nodes.add({
-                        id: engagedWith,
-                        label: engagedWith,
-                        value: interactionCount,
-                        shape: 'circularImage',
-                        image: userInfo.engaged_user_profile_image,
-                        borderWidth: 3,
-                        size: Math.max(25, Math.min(40, 25 + interactionCount * 2)),
-                        color: {
-                            border: '#0052FF',
-                            background: '#FFFFFF',
-                            highlight: {
+                    // Check if node already exists before adding
+                    if (!nodes.get(engagedWith)) {
+                        const engagedNodeSize: number = Math.max(25, Math.min(40, 25 + interactionCount * 2));
+                        nodes.add({
+                            id: engagedWith,
+                            label: engagedWith,
+                            value: interactionCount,
+                            shape: 'circularImage',
+                            image: userInfo.engaged_user_profile_image,
+                            borderWidth: engagedBorderWidth,
+                            size: engagedNodeSize,
+                            color: {
                                 border: '#0052FF',
                                 background: '#FFFFFF',
+                                highlight: {
+                                    border: '#0052FF',
+                                    background: '#FFFFFF',
+                                },
                             },
-                        },
-                        font: {
-                            color: '#1A1A1A',
-                            size: 12,
-                            face: 'var(--font-inter), system-ui, sans-serif',
-                            strokeWidth: 2,
-                            strokeColor: '#FFFFFF',
-                        },
-                        shadow: {
-                            enabled: true,
-                            color: 'rgba(0, 82, 255, 0.25)',
-                            size: 6,
-                            x: 1,
-                            y: 1,
-                        },
-                    });
+                            font: {
+                                color: '#1A1A1A',
+                                size: 12,
+                                face: 'var(--font-inter), system-ui, sans-serif',
+                                strokeWidth: 2,
+                                strokeColor: '#FFFFFF',
+                            },
+                            shadow: {
+                                enabled: true,
+                                color: 'rgba(0, 82, 255, 0.25)',
+                                size: 6,
+                                x: 1,
+                                y: 1,
+                            },
+                        });
+                    }
 
-                    edges.add({
-                        id: `${username}-${engagedWith}`,
-                        from: username,
-                        to: engagedWith,
-                        value: interactionCount,
-                        color: {
-                            color: '#0052FF',
-                            highlight: '#FF6B35',
-                            opacity: 0.6,
-                        },
-                        width: edgeWidth,
-                        smooth: {
-                            type: 'continuous',
-                            roundness: 0.5,
-                        },
-                        shadow: {
-                            enabled: true,
-                            color: 'rgba(0, 82, 255, 0.2)',
-                            size: 3,
-                        },
-                    });
+                    const edgeId = `${username}-${engagedWith}`;
+                    // Check if edge already exists before adding
+                    if (!edges.get(edgeId)) {
+                        edges.add({
+                            id: edgeId,
+                            from: username,
+                            to: engagedWith,
+                            value: interactionCount,
+                            color: {
+                                color: '#0052FF',
+                                highlight: '#FF6B35',
+                                opacity: 0.6,
+                            },
+                            width: edgeWidth,
+                            smooth: {
+                                enabled: true,
+                                type: 'continuous',
+                                roundness: 0.5,
+                            },
+                            shadow: {
+                                enabled: true,
+                                color: 'rgba(0, 82, 255, 0.2)',
+                                size: 3,
+                            },
+                        });
+                    }
                 });
 
                 const data = { nodes, edges };
@@ -201,7 +221,7 @@ export default function NetworkGraph({ username, userData, engagements }: Networ
                             enabled: true,
                         },
                         chosen: {
-                            node: (values: any, id: string, selected: boolean) => {
+                            node: (values: any, id: string | number, selected: boolean) => {
                                 if (selected) {
                                     values.borderWidth = 5;
                                     values.shadow = {
@@ -211,10 +231,14 @@ export default function NetworkGraph({ username, userData, engagements }: Networ
                                     };
                                 }
                             },
-                        },
+                            label: () => {
+                                // Empty function to satisfy type requirement
+                            },
+                        } as any,
                     },
                     edges: {
                         smooth: {
+                            enabled: true,
                             type: 'continuous',
                             roundness: 0.5,
                         },

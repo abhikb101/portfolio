@@ -77,16 +77,17 @@ export default function XSocialGraphsTrinket({ onClose }: XSocialGraphsTrinketPr
                 />
                 <button
                     onClick={handleSearch}
-                    disabled={isLoading}
+                    disabled={isLoading || !searchUsername.trim()}
                     style={{
                         padding: '0.75rem 1.5rem',
-                        background: isLoading ? '#ccc' : '#FF6B35',
+                        background: isLoading || !searchUsername.trim() ? '#ccc' : '#FF6B35',
                         color: '#FFFFFF',
                         border: 'none',
                         borderRadius: '0.5rem',
-                        cursor: isLoading ? 'not-allowed' : 'pointer',
+                        cursor: isLoading || !searchUsername.trim() ? 'not-allowed' : 'pointer',
                         fontSize: '0.875rem',
                         fontWeight: '600',
+                        transition: 'background 0.2s ease',
                     }}
                 >
                     {isLoading ? 'Searching...' : 'Search'}
